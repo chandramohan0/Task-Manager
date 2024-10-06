@@ -62,7 +62,7 @@ Once the application is running, you can access the <b><a href="http://localhost
    http://localhost:8080/swagger-ui.html
 
   #### AWS EC2 Production
-   https://ec2-13-201-20-236.ap-south-1.compute.amazonaws.com:8080/swagger-ui/swagger-ui/index.html#/ 
+   ec2-13-201-20-236.ap-south-1.compute.amazonaws.com:8080/swagger-ui/swagger-ui/index.html#/ 
  ```
 #### 2. Using Postman
 Alternatively, you can use Postman or any other API testing tool to test the endpoints.
