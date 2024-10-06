@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/TaskManagementSystem?createDatabaseIfNotExist=true
+    username: root
+    password: root@123
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+springdoc:
+  api-docs:
+    path: /task/api-docs
+  swagger-ui:
+    path: /swagger-ui/index.html
+
