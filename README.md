@@ -61,7 +61,7 @@ Run the backend tests using Maven:
 ```
 ### API Documentation
 Swagger is integrated into the backend to provide API documentation. After running the backend, access the Swagger UI at:
-<b>http://localhost:8080/swagger-ui.html</b>
+<b>http://localhost:8080/swagger-ui/index.html</b>
 
 ### Usage
 Access the Frontend: Open your browser and navigate to http://localhost:3000.
