@@ -1,0 +1,38 @@
+/* .page{
+} */
+.editTaskContainer{
+    height: 20vh;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.editTaskContainer button{
+    height: 40px;
+    padding: 0 10px;
+    background-color: aqua;
+    border: none;
+}
+
+.tasksContainer{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    /* border: 1px solid black; */
+}
+
+.showTasks{
+    display: flex;
+    gap: 1rem;
+    border: 1px solid black;
+    padding: .5rem 1rem;
+}
+
+.showTasks span{
+    cursor: pointer;
+    color: red;
+    font-weight: 800;
+}
