@@ -1,3 +1,12 @@
+# Frontend - Task Manager
+
+## Overview
+This is the frontend part of the Task Manager web application built using React. It allows users to interact with the backend API to create, retrieve, update, and delete tasks.
+
+## Requirements
+- Node.js (v14+)
+- NPM (v6+)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -5,6 +14,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+
+### 1. Install Dependencies
+After cloning the project, navigate to the `frontend` directory and run:
+
+### `npm install`
+This will install all the required dependencies.
 
 ### `npm start`
 
