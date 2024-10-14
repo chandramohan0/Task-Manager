@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chandraMohan.taskManager.dto.TaskDTO;
 import com.chandraMohan.taskManager.entity.Task;
+import com.chandraMohan.taskManager.exception.InvalidTaskBodyException;
 import com.chandraMohan.taskManager.service.TaskService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/task")
@@ -46,14 +49,20 @@ public class TaskController {
 	@PostMapping("/add")
 	@Operation(summary = "Add Task")
 	@ResponseStatus(HttpStatus.OK)
-	public String addTask(@RequestBody TaskDTO task) {
+	public String addTask(@Valid @RequestBody TaskDTO task, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new InvalidTaskBodyException("task body invalid");
+		}
 		return taskService.addTask(task);
 	}
 	
 	@PutMapping("/update/id/{id}")
 	@Operation(summary = "Update Task")
 	@ResponseStatus(HttpStatus.OK)
-	public String updateTask(@PathVariable Long id, @RequestBody TaskDTO task) {
+	public String updateTask(@PathVariable Long id, @Valid @RequestBody TaskDTO task, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			throw new InvalidTaskBodyException("task body invalid");
+		}
 		return taskService.updateTask(id, task);
 	}
 	

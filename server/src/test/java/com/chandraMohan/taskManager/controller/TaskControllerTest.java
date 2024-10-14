@@ -15,14 +15,19 @@ import org.mockito.MockitoAnnotations;
 import com.chandraMohan.taskManager.dto.TaskDTO;
 import com.chandraMohan.taskManager.entity.Task;
 import com.chandraMohan.taskManager.service.TaskService;
+import org.springframework.validation.BindingResult;
 
 class TaskControllerTest {
 
     @Mock
     private TaskService taskService;
 
+    @Mock
+    private BindingResult bindingResult;
+
     @InjectMocks
     private TaskController taskController;
+
 
     private Task sampleTask;
     private TaskDTO sampleTaskDTO;
@@ -73,10 +78,10 @@ class TaskControllerTest {
 
     @Test
     void testAddTask() {
-
+        when(bindingResult.hasErrors()).thenReturn(false);
         when(taskService.addTask(any(TaskDTO.class))).thenReturn("Task added successfully");
 
-        String result = taskController.addTask(sampleTaskDTO);
+        String result = taskController.addTask(sampleTaskDTO, bindingResult);
 
         assertEquals("Task added successfully", result);
         verify(taskService, times(1)).addTask(any(TaskDTO.class));
@@ -84,10 +89,10 @@ class TaskControllerTest {
 
     @Test
     void testUpdateTask() {
-    	
+        when(bindingResult.hasErrors()).thenReturn(false);
         when(taskService.updateTask(eq(1L), any(TaskDTO.class))).thenReturn("Task updated successfully");
 
-        String result = taskController.updateTask(1L, sampleTaskDTO);
+        String result = taskController.updateTask(1L, sampleTaskDTO, bindingResult);
 
         assertEquals("Task updated successfully", result);
         verify(taskService, times(1)).updateTask(eq(1L), any(TaskDTO.class));
